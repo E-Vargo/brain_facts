@@ -5,8 +5,8 @@ require_relative "lib/brain_facts/version"
 Gem::Specification.new do |spec|
   spec.name = "brain_facts"
   spec.version = BrainFacts::VERSION
-  spec.authors = ["E-Vargo"]
-  spec.email = ["vargoelliott@gmail.com"]
+  spec.authors = ["someone"]
+  spec.email = ["someone@gmail.com"]
 
   spec.summary = "TODO: Write a short summary, because RubyGems requires one."
   spec.description = "TODO: Write a longer description or delete this line."
