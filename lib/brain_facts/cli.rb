@@ -14,7 +14,7 @@ class BrainFacts::CLI
        #get inpput
        #present scraped data
        #represent options to user/ done? 
-        BrainFacts::CNSComponent.new.boop
-        BrainFacts::Scraper.new.booop
+        
+        
     end
 end
