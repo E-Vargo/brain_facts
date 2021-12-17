@@ -8,19 +8,18 @@ require 'pry'
 class BrainFacts::CLI
     BASE_PATH = "https://www.kenhub.com/en/library/anatomy/neuroanatomy"
     def call
-       puts "                   WELCOME TO BRAIN FACTS".colorize(:light_cyan)
-       puts "This is a selection of educational options regarding nueroanatomy."
-       puts "Enter a number for the part of the brain youd like to know mroe about!\n\n\n"
-       #welcome user
-       #describe options
-       #list options
-       #get inpput
-       #present scraped data
-       #represent options to user/ done? 
-       options
+        options
+        input = gets.chomp.to_i
+        display_component(input)
+        c = BrainFacts::CNSComponent.new(input)
+        puts "#{c.info}"
+        puts "#{c.list}"
+        puts "Would you like to make another selection? y/n"
     input = gets.chomp
-    if input == "1"
-        puts "#{BrainFacts::CNSComponent.new(BrainFacts::Scraper.scrape_overview_page(BASE_PATH)).header}"
+    if input == "y" || input == "Y" 
+        call
+    elsif input == "n" || input == "N"
+        exit
     end
     end
 
@@ -31,7 +30,7 @@ class BrainFacts::CLI
     end
 
     def display_component(input)
-
+        puts "You have chosen the #{BrainFacts::CNSComponent.new(input).header}.".colorize(:light_cyan)
     end
     
 end
