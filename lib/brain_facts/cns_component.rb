@@ -2,7 +2,6 @@ require_relative '../environment.rb'
 
 class BrainFacts::CNSComponent
 
-    def boop
-        puts "boop"
-    end
+    attr_accessor :header, :list, :info, :link
+    
 end

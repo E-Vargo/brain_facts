@@ -4,17 +4,29 @@ require 'nokogiri'
 require 'pry'
 
 class BrainFacts::Scraper 
+
+    attr_reader :doc
+
+    def initialize
     overview_url  = "https://www.kenhub.com/en/library/anatomy/neuroanatomy"
+    @doc = Nokogiri::HTML(open(overview_url))
+    end
+
     def scrape_overview_page(overview_url)
-        doc = Nokogiri::HTML(open(overview_url))
         hash = {}
         array = []
-        doc.css("#section3").css("section").each do |e|
+        @doc.css("#section3").css("section").each do |e|
         hash = {header: e.css("h3").text, info: e.css("p").text, list: e.css("ul").text}
         array.push(hash)
-         end
-         array
+        end
+        array
     end
+
+
+    def scrape_overview_options(overview_url)
+    @doc.css("#section3").css("h3").collect {|e| e.text}
+    end
+
 end
 
 =begin
