@@ -8,16 +8,19 @@ class BrainFacts::Scraper
     def scrape_overview_page(overview_url)
         doc = Nokogiri::HTML(open(overview_url))
         hash = {}
-        a = doc.css("#section3").css("#section4").css("p").text
-        
-        binding.pry
+        array = []
+        doc.css("#section3").css("section").each do |e|
+        hash = {header: e.css("h3").text, info: e.css("p").text, list: e.css("ul").text}
+        array.push(hash)
+         end
+         array
     end
 end
 
 =begin
 requirements:
 need to iterate through each 'section' element within 
-'section' element id="section3" and collect following for
+the 'section' element where id="section3" and collect following for
 each:
 all paragraphs, links, and li/ul such that the presentation
 of text to the user will be sensible
