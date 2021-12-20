@@ -6,3 +6,6 @@ source "https://rubygems.org"
 gemspec
 
 gem "rake", "~> 13.0"
+gem 'pry'
+gem 'nokogiri', '1.11.4'
+gem 'colorize'
