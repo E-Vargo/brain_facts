@@ -6,11 +6,10 @@ require 'colorize'
 
 
 class BrainFacts::CLI
-    BASE_PATH = "https://www.kenhub.com/en/library/anatomy/neuroanatomy"
 
     def call
     hello
-    options
+    BrainFacts::Scraper.options
     interface
     big_brain
     end
@@ -26,7 +25,7 @@ class BrainFacts::CLI
             info(c)
             puts "#{c.list}"
         elsif input == "brain"
-        options
+        BrainFacts::Scraper.options
         elsif input != "end"
         "Please enter a valid input."
         end
@@ -36,13 +35,6 @@ class BrainFacts::CLI
     def hello
     puts "            -------WELCOME TO BRAIN FACTS-------".colorize(:light_cyan)
     puts "This is a selection of brain facts scraped from kenhub.com\n\n\n"
-    end
-
-
-    def options         #print header for each cns class option
-        BrainFacts::Scraper.scrape_overview_options(BASE_PATH).each_with_index do |e, i|
-            puts "#{i+1}--- #{e} ---#{i+1}".center(60)
-        end
     end
 
     def display_component(input)        #display header for given user input

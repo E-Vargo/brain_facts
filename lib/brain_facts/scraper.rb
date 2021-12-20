@@ -5,10 +5,10 @@ require 'nokogiri'
 
 class BrainFacts::Scraper 
 
-    overview_url  = "https://www.kenhub.com/en/library/anatomy/neuroanatomy"
-    DOC = Nokogiri::HTML(open(overview_url))
+    @@base  = "https://www.kenhub.com/en/library/anatomy/neuroanatomy"
+    DOC = Nokogiri::HTML(open(@@base))
 
-    def self.scrape_overview_page(overview_url)     #scrapes page for data regarding the central nervous system. each sections attributes stored in hash, hashes in array
+    def self.scrape_overview_page     #scrapes page for data regarding the central nervous system. each sections attributes stored in hash, hashes in array
         hash = {}
         array = []
 
@@ -21,8 +21,14 @@ class BrainFacts::Scraper
         array
     end
 
-    def self.scrape_overview_options(overview_url)      #scrapes header text for each section
+    def self.scrape_overview_options      #scrapes header text for each section
         DOC.css("#section3").css("h3").collect {|e| e.text}
+    end
+
+    def self.options         #print header for each cns class option
+        BrainFacts::Scraper.scrape_overview_options.each_with_index do |e, i|
+            puts "#{i+1}--- #{e} ---#{i+1}".center(60)
+        end
     end
 
 end
