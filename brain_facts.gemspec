@@ -10,8 +10,7 @@ Gem::Specification.new do |spec|
   spec.email = ["someone@gmail.com"]
 
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "This gem scrapes data about the brain from kenhub.com."
   spec.homepage = "https://example.com"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"

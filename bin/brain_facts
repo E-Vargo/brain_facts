@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require_relative '../lib/environment.rb'
-overview_url  = "https://www.kenhub.com/en/library/anatomy/neuroanatomy"
 
 BrainFacts::CLI.new.call
 
