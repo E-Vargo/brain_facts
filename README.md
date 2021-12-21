@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
 Use this gem to learn a little about the central nervous system.
+Executable file: ./bin/brain_facts
 
 ## Development
 
