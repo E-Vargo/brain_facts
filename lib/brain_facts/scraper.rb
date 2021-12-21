@@ -25,10 +25,6 @@ class BrainFacts::Scraper
         DOC.css("#section3").css("h3").collect {|e| e.text}
     end
 
-    def self.options         #print header for each cns class option
-        BrainFacts::Scraper.scrape_overview_options.each_with_index do |e, i|
-            puts "#{i+1}--- #{e} ---#{i+1}".center(60)
-        end
-    end
+  
 
 end

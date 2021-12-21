@@ -2,7 +2,7 @@ require_relative '../environment.rb'
 
 class BrainFacts::CNSComponent
 
-    attr_accessor :header, :list, :info, :link, :index
+    attr_accessor :header, :list, :info, :link
     
     def initialize(input)
     hash = BrainFacts::Scraper.scrape_overview_page[input.to_i]      #scrape_overview_page returns array of hashes, get hash which corresponds to input
