@@ -23,7 +23,7 @@ class BrainFacts::CLI
             @c = BrainFacts::CNSComponent.new(input)
             display_component(input) 
             info
-            puts "#{@c.list}"
+            list
         elsif input == "brain"
         options
         end
@@ -44,6 +44,10 @@ class BrainFacts::CLI
 
     def display_component(input)        #display header for given user input
         puts "You have chosen the #{@c.header}.".colorize(:light_cyan)
+    end
+
+    def list 
+        puts "#{@c.list}"
     end
 
     def hello
